@@ -45,6 +45,13 @@ class TweetMusic:
   """
   def __init__(self, **kwargs):
     
+    # validate arguments
+    req = ['consumer_key', 'consumer_secret', 'access_key', 'access_secret']
+    missing = [r for r in req if r not in kwargs]
+    if len(missing) > 1:
+      raise Exception("TweetMusic is missing: %s" % ", ".join(missing))
+      return None
+
     # connect to twitter
     ck = kwargs.get('consumer_key')
     cs = kwargs.get('consumer_secret')

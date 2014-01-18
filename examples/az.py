@@ -1,10 +1,10 @@
+from tweet_music import TweetMusic, midi, algorhythm
+
 import string
 from random import choice
 
-from tweet_music import TweetMusic, midi, algorhythm
-
 # build scale
-scale = midi.utils.build_scale(10, [0, 3, 5, 7, 9], min_note=10, max_note = 50)
+scale = midi.utils.build_scale('E3', [0, 3, 5, 7, 9], min_note='E3', max_note = 'E9')
 
 # build lookup of letters to notes
 lookup = {}
@@ -22,8 +22,10 @@ def az(tweet, midi):
     for c in text:
       if c in lookup:
         note = lookup[c]
-        midi.play_note(note, choice(range(50, 100, 1)), 0.125)
+        velocity = choice(range(50, 100, 1))
+        midi.play_note(note, velocity, 0.125)
 
+# Initiatilize TweetMusic object by connecting to twitter.
 m = TweetMusic(
   consumer_key = '',
   consumer_secret = '',
