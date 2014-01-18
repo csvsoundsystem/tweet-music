@@ -9,14 +9,14 @@ import midi
 
 # decorator for apply midi creation functions to tweet functions
 def algorhythm(func):
-  def run_algorhythm(tweet, midi):
+  def run_algorhythm(tweet, midi, **kwargs):
     try:
       tweet = json.loads(tweet)
     except TypeError:
       print 'ERROR!'
       return True
     else:
-      return func(tweet, midi)
+      return func(tweet, midi, **kwargs)
   return run_algorhythm
 
 

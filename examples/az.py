@@ -19,7 +19,7 @@ for i, a in enumerate(az):
 
 # define function to play tweet
 @algorhythm
-def az(tweet, midi):
+def az(tweet, midi, channel=1):
   if 'text' in tweet:
     text = tweet['text'].encode('utf-8', 'ignore')
     print "< tweet > %s" % text
@@ -27,7 +27,7 @@ def az(tweet, midi):
       if c in lookup:
         note = lookup[c]
         velocity = choice(range(50, 100, 1))
-        midi.play_note(note, velocity, 0.125)
+        midi.play_note(channel, note, velocity, 0.125)
 
 # Initiatilize TweetMusic object by connecting to twitter.
 m = TweetMusic(
