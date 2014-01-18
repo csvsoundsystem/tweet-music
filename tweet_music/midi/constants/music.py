@@ -1,29 +1,5 @@
 # -*- coding: utf-8 -*-
 
-def note_to_midi(n):
-  if isinstance(n, basestring):
-    return NOTES[n]
-  elif isinstance(n, int):
-    return n
-
-def root_to_midi(n):
-  if isinstance(n, basestring):
-    return ROOTS[n]
-  elif isinstance(n, int):
-    return n
-
-def chord_to_midi(name):
-  return CHORDS[name]
-
-def build_scale(key, scale, min_note=0, max_note=128):
-    s = [s + key for s in scale]
-    return [ 
-      x + (12 * j)
-      for j in range(12)
-      for x in s
-      if x + (12 * j) >= min_note and x + (12 * j) <= max_note
-    ]
-
 CHORDS = {
   "maj": [0,4,7],
   "maj_no_fifth": [0,4],

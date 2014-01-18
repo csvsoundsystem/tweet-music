@@ -1,10 +1,14 @@
 from tweet_music import TweetMusic, midi, algorhythm
+from tweet_music.midi.consants import music 
 
 import string
 from random import choice
 
 # build scale
-scale = midi.utils.build_scale('E', [0, 3, 5, 7, 9], min_note='E3', max_note = 'E9')
+scale = midi.utils.build_scale(
+  'E', music.SCALES['GYPSY_SCALE'], 
+  min_note='E3', max_note = 'E9'
+)
 
 # build lookup of letters to notes
 lookup = {}
