@@ -19,7 +19,7 @@ import string
 from random import choice
 
 # build scale
-scale = midi.utils.build_scale('E3', [0, 3, 5, 7, 9], min_note='E3', max_note = 'E9')
+scale = midi.utils.build_scale('E', [0, 3, 5, 7, 9], min_note='E3', max_note = 'E9')
 
 # build lookup of letters to notes
 lookup = {}

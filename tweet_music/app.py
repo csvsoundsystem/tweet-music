@@ -45,18 +45,23 @@ class TweetMusic:
   """
   def __init__(self, **kwargs):
     
-    # validate arguments
+    # check for existence of args
     req = ['consumer_key', 'consumer_secret', 'access_key', 'access_secret']
     missing = [r for r in req if r not in kwargs]
     if len(missing) > 1:
-      raise Exception("TweetMusic is missing: %s" % ", ".join(missing))
-      return None
+      raise Exception("TweetMusic is missing these twitter api credentials: %s" % ", ".join(missing))
+    
+    # validate args
+    args_test = [True for r in req if kwargs.get(r)=='' or kwargs.get(r) is None]
+    if any(args_test):
+      raise Exception('%s of your api credentials are empty' % len(args_test))
 
     # connect to twitter
     ck = kwargs.get('consumer_key')
     cs = kwargs.get('consumer_secret')
     ak = kwargs.get('access_key')
     asec = kwargs.get('access_secret')
+
     self.auth = tweepy.OAuthHandler(ck, cs)
     self.auth.set_access_token(ak, asec)
     self.api = tweepy.API(self.auth)
