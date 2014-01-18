@@ -1,0 +1,9 @@
+build/
+dist/
+twitter_auth
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
+*/*.pyc
+*/*/*.pyc
+*/*/*/*.pyc
