@@ -14,7 +14,7 @@ python setup.py install
 ## Example:
 ```python
 from tweet_music import TweetMusic, midi, algorhythm
-from tweet_music.midi.consants import music 
+from tweet_music.midi.constants import music 
 
 import string
 from random import choice
