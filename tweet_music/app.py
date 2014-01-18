@@ -54,7 +54,7 @@ class TweetMusic:
     # validate args
     args_test = [True for r in req if kwargs.get(r)=='' or kwargs.get(r) is None]
     if any(args_test):
-      raise Exception('%s of your api credentials are empty' % len(args_test))
+      raise Exception('%d of your api credentials are empty' % len(args_test))
 
     # connect to twitter
     ck = kwargs.get('consumer_key')
