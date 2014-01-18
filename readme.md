@@ -36,7 +36,7 @@ for i, a in enumerate(az):
 @algorhythm
 def az(tweet, midi):
   if 'text' in tweet:
-    text = tweet['text'].encode('utf-8', 'ignore').lower()
+    text = tweet['text'].encode('utf-8', 'ignore')
     print "< tweet > %s" % text
     for c in text:
       if c in lookup:
