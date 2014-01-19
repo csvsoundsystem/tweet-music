@@ -13,6 +13,16 @@ python setup.py install
 
 ## Example:
 ```python
+"""
+
+USAGE:
+python az.py <channel> <duration>
+
+EX:
+python az.py 1 0.5
+
+"""
+
 from tweet_music import TweetMusic, midi, algorhythm
 from tweet_music.midi.constants import music 
 
@@ -20,17 +30,17 @@ import string
 from random import choice
 
 # build scale
-scale = midi.utils.build_scale(
-  'E', music.SCALES['GYPSY_SCALE'], 
-  min_note='E3', max_note = 'E9'
+scale808 = midi.utils.build_scale(
+  key = 'A', scale = music.SCALES['HARMONIC_MINOR_SCALE'], 
+  min_note='A1', max_note = 'A7'
 )
 
 # build lookup of letters to notes
 lookup = {}
 az = [i for i in string.letters + string.digits]
 for i, a in enumerate(az):
-  if i <= (len(scale)-1):
-    lookup[a] = scale[i]
+  if i <= (len(scale808)-1):
+    lookup[a] = scale808[i]
 
 # define function to play tweet
 @algorhythm
@@ -41,16 +51,18 @@ def az(tweet, midi):
     for c in text:
       if c in lookup:
         note = lookup[c]
-        velocity = choice(range(50, 100, 1))
-        midi.play_note(note, velocity, 0.125)
-
+        velocity = choice(range(70, 110, 5))
+        midi.play_note(int(sys.argv[1]), note, velocity, float(sys.argv[2]))
 # Initiatilize TweetMusic object by connecting to twitter.
-m = TweetMusic(
-  consumer_key = '',
-  consumer_secret = '',
-  access_key = '',
-  access_secret = ''
-)
+if __name__ == '__main__':
 
-m.run(term='ok', func=az)
+  # Initiatilize TweetMusic object by connecting to twitter.
+  tm = TweetMusic(
+    consumer_key = '',
+    consumer_secret = '',
+    access_key = '',
+    access_secret = ''
+  )
+
+  tm.run(term='ok', func=az)
 ```

@@ -42,7 +42,7 @@ def az(tweet, midi):
 if __name__ == '__main__':
 
   # Initiatilize TweetMusic object by connecting to twitter.
-  m = TweetMusic(
+  tm = TweetMusic(
     consumer_key = '',
     consumer_secret = '',
     access_key = '',
