@@ -27,7 +27,7 @@ class Midi(object):
 
     # format message
     off = NOTE_OFF + int(channel - 1)
-    print on, off
+
     # validate velocity
     velocity = self._validate_velocity(velocity)
 

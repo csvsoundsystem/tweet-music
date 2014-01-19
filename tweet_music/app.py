@@ -9,14 +9,14 @@ import midi
 
 # decorator for apply midi creation functions to tweet functions
 def algorhythm(func):
-  def run_algorhythm(tweet, midi, **kwargs):
+  def run_algorhythm(tweet, midi):
     try:
       tweet = json.loads(tweet)
     except TypeError:
       print 'ERROR!'
       return True
     else:
-      return func(tweet, midi, **kwargs)
+      return func(tweet, midi)
   return run_algorhythm
 
 
@@ -66,7 +66,7 @@ class TweetMusic:
     self.auth.set_access_token(ak, asec)
     self.api = tweepy.API(self.auth)
 
-  def run(self, term, func):
-    stream = tweepy.streaming.Stream(self.auth, OnTweet(self.api, func))
+  def run(self, term, func, **kwargs):
+    stream = tweepy.streaming.Stream(self.auth, OnTweet(self.api, func, **kwargs))
     print "< streaming > %s" % term
     stream.filter(track=[term])

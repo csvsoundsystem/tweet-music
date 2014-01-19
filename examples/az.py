@@ -6,9 +6,10 @@ from random import choice
 
 # build scale
 scale = midi.utils.build_scale(
-  'E', music.SCALES['GYPSY_SCALE'], 
-  min_note='E3', max_note = 'E9'
+  root = 'A', scale = music.SCALES['MINOR'], 
+  min_note='A1', max_note = 'D#2'
 )
+
 
 # build lookup of letters to notes
 lookup = {}
@@ -27,7 +28,7 @@ def az(tweet, midi, channel=1):
       if c in lookup:
         note = lookup[c]
         velocity = choice(range(50, 100, 1))
-        midi.play_note(channel, note, velocity, 0.125)
+        midi.play_note(channel, note, velocity, length)
 
 # Initiatilize TweetMusic object by connecting to twitter.
 m = TweetMusic(

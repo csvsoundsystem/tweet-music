@@ -17,7 +17,7 @@ def root_to_midi(n):
 def chord_to_midi(name):
   return music.CHORDS[name]
 
-def build_scale(key, scale, min_note=0, max_note=128):
+def build_scale(key, scale, min_note=0, max_note=127):
   
   # convert args    
   key = root_to_midi(key)
