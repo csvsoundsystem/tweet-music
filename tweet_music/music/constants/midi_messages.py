@@ -248,10 +248,3 @@ FPS_25 = 0xE7
 FPS_29 = 0xE3
 FPS_30 = 0xE2
 
-
-###################################################
-## Helper functions
-
-def is_status(byte):
-    return (byte & 0x80) == 0x80 # 1000 0000
-

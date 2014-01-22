@@ -1,2 +1,2 @@
-from tweet_stream import TweetStream
-from socket import Socket
+from stream_twitter import TwitterStream
+from stream_socket import SocketStream

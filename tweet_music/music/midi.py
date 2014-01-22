@@ -33,13 +33,13 @@ class Midi(object):
     velocity = self._validate_velocity(velocity)
 
     # note on
-    self.send_message([on, note, velocity])
+    self.out.send_message([on, note, velocity])
 
     # pause
     time.sleep(duration)
 
     # note off
-    self.send_message([off, note, velocity])
+    self.out.send_message([off, note, velocity])
 
   def play_chord(self, channel, root, name, velocity, duration):
     
@@ -59,13 +59,13 @@ class Midi(object):
 
     # notes on
     for n in notes:
-      self.send_message([on, n, velocity])
+      self.out.send_message([on, n, velocity])
 
     time.sleep(duration)
 
     # notes off
     for n in notes:
-      self.send_message([off, n, velocity])
+      self.out.send_message([off, n, velocity])
 
   def send_midi_message(self, midi_message):
     self.out.send_message(midi_message)

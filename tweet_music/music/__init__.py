@@ -1,3 +1,3 @@
 from midi import Midi
-import utils
+import midi_utils
 import constants

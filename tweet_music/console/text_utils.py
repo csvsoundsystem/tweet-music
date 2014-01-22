@@ -1,5 +1,42 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import textwrap
+
+def wrap_text(text, max_width):
+  """
+  wrap message to set width
+  """
+  lines = textwrap.wrap(text, max_width)
+
+  # return single line
+  if len(lines)==1:
+
+    text = lines[0].strip()
+
+    # don't pad posts that are the max_width
+    if len(text) == max_width:                                                         
+
+      return text
+
+    # pad posts that aren't wider than image
+    else:
+
+      fill = " " * (max_width - len(text))
+      text += fill
+      return text
+
+  # break lines
+  else:
+
+    wrapped_lines = []
+
+    for i, line in enumerate(lines):
+
+      line = line.strip()
+      fill = " " * (max_width - len(line))
+      wrapped_lines.append(line + fill)
+      
+    return "\r\n".join(wrapped_lines)
 
 STYLES = dict(
   bold = '\033[1m',

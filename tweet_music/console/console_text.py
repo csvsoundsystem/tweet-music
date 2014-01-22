@@ -12,9 +12,9 @@ class ConsoleTextError(Exception):
 
 def log_style(text, *attr):
   style = ''
-  for a in self.attributes:
-      a = a.upper()
-      if a in STYLES.opts.keys():
+  for a in attr:
+      a = a.lower()
+      if a in STYLES.keys():
           style += STYLES[a]
       else:
           raise ConsoleTextError("'%s' is not a valid style." % a)

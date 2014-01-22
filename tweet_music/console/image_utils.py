@@ -5,6 +5,7 @@ from PIL import Image
 import base64
 import urllib2 as urllib
 import io
+import StringIO
 
 def parse_b64_img(b64):
   # format string
