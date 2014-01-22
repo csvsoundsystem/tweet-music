@@ -31,7 +31,6 @@ setup(
         "six==1.5.2",
         "socketIO-client==0.5.3",
         "tweepy==2.1",
-        "tweet-music==0.0.2",
         "websocket-client==0.12.0",
         "wsgiref==0.1.2"
         ],

@@ -11,10 +11,7 @@ haiku = Haiku()
 rates = range(150, 200, 5)
 
 twt_strm = TwitterStream(
-  consumer_key = 'luNYqynZjp26awakJaGing',
-  consumer_secret = 'o2VSEZrXzI6L8kpV9tlN2IOdxv2koAOJpUwgQTkAZA',
-  access_key = '432708845-PuDX6SOfho6hSITCCowFOAuauR7PU4oMeO3cYZB8',
-  access_secret = 'JMp6lmLTnYF42X0957vg2dSuic23CrbhqsSBCE865KU'
+
 )
 
 def twt_id_to_attr(twt_id):
