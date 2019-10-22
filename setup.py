@@ -23,7 +23,7 @@ setup(
     zip_safe = False,
     install_requires = [
         "Cython==0.19.2",
-        "Pillow==2.3.0",
+        "Pillow==6.2.0",
         "PyYAML==3.10",
         "nltk==2.0.4",
         "python-rtmidi==0.4.3b1",
